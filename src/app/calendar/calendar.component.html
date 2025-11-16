@@ -1,0 +1,13 @@
+<div class="calendar-grid">
+    <div *ngFor="let door of doors" class="door" (click)="openDoor(door)">
+        {{ door.dayNumber }}
+    </div>
+</div>
+
+<div class="overlay" *ngIf="selectedDoor" (click)="closeDoor()">
+    <div class="modal" (click)="$event.stopPropagation()">
+        <h2>{{ selectedDoor.title }}</h2>
+        <img [src]="selectedDoor.contentUrl" alt="Door content" />
+        <button (click)="closeDoor()">Close</button>
+    </div>
+</div>
